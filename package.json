@@ -1,0 +1,30 @@
+{
+  "name": "smart-bms-backend",
+  "version": "1.0.0",
+  "description": "Smart BMS Node.js + Express Backend with Firebase Realtime Database and SSE streaming",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "bms",
+    "battery-management-system",
+    "firebase",
+    "express",
+    "sse"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "firebase-admin": "^13.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
