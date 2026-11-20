@@ -1,0 +1,35 @@
+[
+  {
+    "id": "TEST-1792503130",
+    "timestamp": "2026-10-20 13:32:10 UTC",
+    "type": "TEST_ALERT",
+    "temperature": 48.0,
+    "threshold": 45.0,
+    "recipient": "admin@smartbms.local",
+    "delivery_status": "SIMULATED_NO_CREDENTIALS",
+    "error": null,
+    "note": "Manual test alert triggered by user"
+  },
+  {
+    "id": "TEST-1792503197",
+    "timestamp": "2026-10-20 13:33:17 UTC",
+    "type": "TEST_ALERT",
+    "temperature": 48.0,
+    "threshold": 45.0,
+    "recipient": "admin@smartbms.local",
+    "delivery_status": "SIMULATED_NO_CREDENTIALS",
+    "error": null,
+    "note": "Manual test alert triggered by user"
+  },
+  {
+    "id": "TEST-1792503321",
+    "timestamp": "2026-10-20 13:35:21 UTC",
+    "type": "TEST_ALERT",
+    "temperature": 48.0,
+    "threshold": 45.0,
+    "recipient": "admin@smartbms.local",
+    "delivery_status": "SIMULATED_NO_CREDENTIALS",
+    "error": null,
+    "note": "Manual test alert triggered by user"
+  }
+]

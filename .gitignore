@@ -1,5 +1,16 @@
 node_modules/
 .env
+.env.*
+!.env.example
 *.log
 serviceAccountKey.json
 .DS_Store
+
+# Python cache and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+ENV/
