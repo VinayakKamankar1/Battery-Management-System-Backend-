@@ -43,10 +43,22 @@ async def startup_event():
     asyncio.create_task(daemon.run_loop())
     print("[FastAPI] Background Alert Daemon task initialized.")
 
-# Enable CORS for Vite frontend and Node backend
+# Enable CORS for Vite frontend, Vercel deployments, and Node backend
+allowed_origins_list = [
+    "https://battery-management-system-tdam.vercel.app",
+    os.getenv("FRONTEND_URL", ""),
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "http://127.0.0.1:5000",
+]
+allowed_origins_list = [o for o in allowed_origins_list if o]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins_list or ["*"],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
