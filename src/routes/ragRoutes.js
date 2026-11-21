@@ -48,7 +48,23 @@ router.get('/battery-specs', async (req, res, next) => {
     const data = await fetchFromRagService('/api/battery-specs');
     res.status(200).json(data);
   } catch (err) {
-    next(err);
+    // Graceful fallback when Python RAG service is offline or waking up
+    res.status(200).json({
+      success: true,
+      active_profile_id: 'unverified_12v',
+      active_specification: {
+        id: 'unverified_12v',
+        name: 'Nominal 12V Prototype Pack (Unverified Chemistry)',
+        nominal_voltage_v: 12.0,
+        voltage_max_v: 12.6,
+        voltage_min_v: 9.0,
+        chemistry: 'UNVERIFIED',
+        verification_status: 'UNVERIFIED',
+      },
+      available_profiles: {},
+      ragService: 'OFFLINE',
+      note: 'Operating on default calibrated 12V profile. Python RAG service is offline.',
+    });
   }
 });
 
@@ -176,7 +192,14 @@ router.get('/reports/history', async (req, res, next) => {
     const data = await fetchFromRagService('/api/reports/history');
     res.status(200).json(data);
   } catch (err) {
-    next(err);
+    // Graceful fallback: return empty history when Python ReportLab service is offline
+    res.status(200).json({
+      success: true,
+      count: 0,
+      data: [],
+      ragService: 'OFFLINE',
+      message: 'Report service is currently offline or warming up.',
+    });
   }
 });
 
